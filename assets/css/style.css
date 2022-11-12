@@ -1,0 +1,87 @@
+/* blank state css */
+.blank-state{
+    background:#eee;
+    position:relative;
+    width:100%;
+    min-height:50px;
+    overflow:hidden;
+}
+
+.blank-state::after{
+    content : '';
+    display:block;
+    position:absolute;
+    background: -moz-linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%);
+    width:200px;
+    height:100%;
+    top:0;
+    left:-200px;
+
+    animation: btnAnimate infinite ease-in 1.5s;
+    -moz-animation: btnAnimate infinite ease-in 1.5s;
+    -o-animation: btnAnimate infinite ease-in 1.5s;
+    -webkit-animation: btnAnimate infinite ease-in 1.5s;
+    -ms-animation: btnAnimate infinite ease-in 1.5s;
+}
+
+@keyframes btnAnimate {
+	from {
+		left:-200px;
+	}
+	to {
+		left:100%;
+	}
+}
+
+
+/* service worker toast notification */
+#notification-wrapper{
+	position:fixed;
+	bottom:-200px;
+	left:0;
+	width:100%;
+	padding:.5em;
+	background:#222;
+	color:#fafafa;
+	z-index:2000;
+	transition:.3s ease;
+	-moz-transition:.3s ease;
+	-webkit-transition:.3s ease;
+	-ms-transition:.3s ease;
+}
+#notification-wrapper.show{
+	bottom:0;
+}
+#notification-wrapper .notification-title{
+	margin-top:.3em;
+}
+
+/* offline online notification */
+#offline-notification{
+	position:fixed;
+	bottom:0em;
+	left:0em;
+	z-index:2001;
+	width:100%;
+	transition:.3s ease;
+	-moz-transition:.3s ease;
+	-o-transition:.3s ease;
+	-webkit-transition:.3s ease;
+	-ms-transition:.3s ease;
+}
+
+#offline-notification .offline-wrapper{
+	margin:.5em;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	overflow:hidden;
+	display:inline-block;
+	padding:.5em;
+}
+
+#offline-notification.online{
+	bottom:-200px;
+	opacity:0;
+}
